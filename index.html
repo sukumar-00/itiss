@@ -1,26 +1,218 @@
-<h1>This is created from the debian</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avengers Portfolio</title>
+<style>
+:root{
+  --bg:#10141f; --panel:#1a2133; --ink:#f2f4f8; --muted:#9aa5bd;
+  --red:#d62839; --gold:#f2b134; --blue:#2f6fed;
+}
+@media (prefers-color-scheme: light){
+  :root{ --bg:#eef1f7; --panel:#ffffff; --ink:#141a2b; --muted:#566079; }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Trebuchet MS",Verdana,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
-<h1>new file added th</h1>
+header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 6vw;background:var(--bg);border-bottom:3px solid var(--red)}
+.logo{font-family:Impact,"Arial Black",sans-serif;font-size:1.5rem;letter-spacing:1px;color:var(--red)}
+nav a{margin-left:20px;text-decoration:none;color:var(--muted);font-weight:bold}
+nav a:hover{color:var(--gold)}
 
+.hero{padding:12vh 6vw 10vh;background:
+  linear-gradient(135deg,var(--blue) 0 33%,transparent 33%) ,
+  var(--bg);}
+.hero h1{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(3rem,10vw,7.5rem);line-height:.95;
+  text-transform:uppercase;max-width:12ch}
+.hero h1 span{color:var(--red)}
+.hero p{margin-top:22px;max-width:50ch;color:var(--muted);font-size:1.1rem}
+.btn{display:inline-block;margin-top:28px;padding:14px 28px;background:var(--red);color:#fff;
+  font-weight:bold;text-decoration:none;border-radius:4px;transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
 
-<h1>This is created from the debian</h1>
+section{padding:9vh 6vw}
+h2{font-family:Impact,"Arial Black",sans-serif;font-size:2.4rem;text-transform:uppercase;margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:36px}
 
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filters button{padding:8px 18px;border:2px solid var(--muted);background:none;color:var(--ink);
+  border-radius:30px;cursor:pointer;font:inherit;font-weight:bold}
+.filters button.on{background:var(--gold);border-color:var(--gold);color:#141a2b}
 
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+.card{background:var(--panel);border-top:6px solid var(--c);padding:26px;cursor:pointer;
+  transition:transform .2s;text-align:left;color:inherit;font:inherit;border-left:0;border-right:0;border-bottom:0;width:100%}
+.card:hover{transform:translateY(-6px)}
+.icon{width:64px;height:64px;border-radius:50%;background:var(--c);display:grid;place-items:center;
+  font-size:1.9rem;margin-bottom:16px}
+.card h3{font-size:1.3rem}
+.real{color:var(--muted);font-size:.9rem;margin-bottom:10px}
+.tag{display:inline-block;margin-top:12px;padding:3px 12px;font-size:.8rem;font-weight:bold;
+  background:var(--c);color:#fff;border-radius:3px}
 
+dialog{margin:auto;max-width:480px;width:92%;border:none;border-radius:8px;background:var(--panel);color:var(--ink);padding:32px}
+dialog::backdrop{background:rgba(0,0,0,.7)}
+dialog h3{font-size:1.7rem}
+.bar{margin:10px 0}
+.bar div{height:10px;background:var(--bg);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold)}
+.bar small{color:var(--muted)}
+dialog button{margin-top:20px;padding:10px 22px;border:0;background:var(--red);color:#fff;font:inherit;font-weight:bold;border-radius:4px;cursor:pointer}
 
+.missions{display:grid;gap:18px;max-width:760px}
+.m{border-left:5px solid var(--red);padding:4px 0 4px 20px}
+.m b{color:var(--gold)}
 
-<h1>This is created from the debian</h1>
+form{display:grid;gap:14px;max-width:520px}
+input,textarea{padding:12px;border:2px solid var(--muted);border-radius:4px;background:var(--panel);color:var(--ink);font:inherit}
+form button{padding:14px;border:0;background:var(--blue);color:#fff;font:inherit;font-weight:bold;border-radius:4px;cursor:pointer}
+#ok{color:var(--gold);font-weight:bold;min-height:1.5em}
 
+footer{text-align:center;padding:30px;color:var(--muted);border-top:3px solid var(--red)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
 
+<header>
+  <div class="logo">AVENGERS</div>
+  <nav>
+    <a href="#team">Team</a>
+    <a href="#missions">Missions</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
+<div class="hero">
+  <h1>Earth’s <span>mightiest</span> heroes</h1>
+  <p>Meet the team that stands between the world and every threat that comes for it. Pick a hero to see their profile.</p>
+  <a class="btn" href="#team">Meet the team</a>
+</div>
 
+<section id="team">
+  <h2>The team</h2>
+  <p class="sub">Select a hero to open their file.</p>
+  <div class="filters" id="filters">
+    <button class="on" data-f="All">All</button>
+    <button data-f="Tech">Tech</button>
+    <button data-f="Strength">Strength</button>
+    <button data-f="Skill">Skill</button>
+    <button data-f="Magic">Magic</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
 
-<h1>This is new image</h1>
+<section id="missions">
+  <h2>Key missions</h2>
+  <p class="sub">A few battles the team is known for.</p>
+  <div class="missions">
+    <div class="m"><b>Battle of New York</b><br>The team first assembles to stop Loki and the Chitauri invasion.</div>
+    <div class="m"><b>Sokovia</b><br>The Avengers face Ultron and fight to protect a falling city.</div>
+    <div class="m"><b>Wakanda</b><br>Heroes unite against Thanos and his army.</div>
+    <div class="m"><b>The Final Battle</b><br>Every hero returns to undo the Snap and defeat Thanos.</div>
+  </div>
+</section>
 
+<section id="contact">
+  <h2>Contact the team</h2>
+  <p class="sub">Need help saving the world? Send a message.</p>
+  <form id="form">
+    <input type="text" placeholder="Your name" required aria-label="Your name">
+    <input type="email" placeholder="Your email" required aria-label="Your email">
+    <textarea rows="4" placeholder="What’s the threat?" required aria-label="Message"></textarea>
+    <button type="submit">Send message</button>
+    <div id="ok" role="status"></div>
+  </form>
+</section>
 
+<footer>Fan-made portfolio page. Avengers characters belong to Marvel.</footer>
 
+<dialog id="dlg">
+  <h3 id="dName"></h3>
+  <p class="real" id="dReal"></p>
+  <p id="dBio"></p>
+  <div id="dStats"></div>
+  <button id="close">Close</button>
+</dialog>
 
-<h1>This</h1>
+<script>
+const heroes = [
+  {n:"Iron Man", r:"Tony Stark", t:"Tech", c:"#d62839", e:"🤖",
+   b:"Genius inventor who builds powered armor. Funds and equips the team.",
+   s:{Intelligence:100, Strength:70, Speed:65, Combat:75}},
+  {n:"Captain America", r:"Steve Rogers", t:"Skill", c:"#2f6fed", e:"🛡️",
+   b:"Super soldier and natural leader with an unbreakable shield.",
+   s:{Intelligence:70, Strength:75, Speed:60, Combat:100}},
+  {n:"Thor", r:"Thor Odinson", t:"Strength", c:"#6b8cff", e:"⚡",
+   b:"Asgardian god of thunder who wields lightning and a mighty hammer.",
+   s:{Intelligence:70, Strength:100, Speed:80, Combat:95}},
+  {n:"Hulk", r:"Bruce Banner", t:"Strength", c:"#3a9d4a", e:"💪",
+   b:"A brilliant scientist whose anger turns him into a nearly unstoppable giant.",
+   s:{Intelligence:95, Strength:100, Speed:55, Combat:70}},
+  {n:"Black Widow", r:"Natasha Romanoff", t:"Skill", c:"#8a1c2b", e:"🕷️",
+   b:"Master spy and fighter, trained to infiltrate and outsmart any enemy.",
+   s:{Intelligence:80, Strength:40, Speed:60, Combat:90}},
+  {n:"Hawkeye", r:"Clint Barton", t:"Skill", c:"#7b4bb7", e:"🏹",
+   b:"A perfect shot with a bow and a calm head in a crisis.",
+   s:{Intelligence:65, Strength:40, Speed:50, Combat:85}},
+  {n:"Doctor Strange", r:"Stephen Strange", t:"Magic", c:"#e07b1a", e:"🔮",
+   b:"Former surgeon turned Sorcerer Supreme who guards reality itself.",
+   s:{Intelligence:90, Strength:45, Speed:50, Combat:80}},
+  {n:"Black Panther", r:"T’Challa", t:"Skill", c:"#3b3f54", e:"🐾",
+   b:"King of Wakanda with a vibranium suit and sharp tactical mind.",
+   s:{Intelligence:85, Strength:70, Speed:75, Combat:90}},
+  {n:"Spider-Man", r:"Peter Parker", t:"Skill", c:"#c1272d", e:"🕸️",
+   b:"Young hero with spider powers, quick reflexes, and a big heart.",
+   s:{Intelligence:85, Strength:70, Speed:85, Combat:75}}
+];
 
+const grid = document.getElementById('grid');
+const dlg = document.getElementById('dlg');
 
-<h1>new fi;eeee</h1>
+function render(filter){
+  grid.innerHTML = '';
+  heroes.filter(h => filter==='All' || h.t===filter).forEach(h=>{
+    const b = document.createElement('button');
+    b.className = 'card';
+    b.style.setProperty('--c', h.c);
+    b.innerHTML = `<div class="icon">${h.e}</div><h3>${h.n}</h3>
+      <div class="real">${h.r}</div><span class="tag">${h.t}</span>`;
+    b.onclick = () => openHero(h);
+    grid.appendChild(b);
+  });
+}
+
+function openHero(h){
+  document.getElementById('dName').textContent = h.n;
+  document.getElementById('dReal').textContent = h.r;
+  document.getElementById('dBio').textContent = h.b;
+  document.getElementById('dStats').innerHTML = Object.entries(h.s).map(([k,v]) =>
+    `<div class="bar"><small>${k}</small><div><i style="width:${v}%"></i></div></div>`).join('');
+  dlg.showModal();
+}
+
+document.getElementById('close').onclick = () => dlg.close();
+dlg.addEventListener('click', e => { if(e.target===dlg) dlg.close(); });
+
+document.getElementById('filters').addEventListener('click', e=>{
+  if(e.target.tagName!=='BUTTON') return;
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');
+  render(e.target.dataset.f);
+});
+
+document.getElementById('form').addEventListener('submit', e=>{
+  e.preventDefault();
+  document.getElementById('ok').textContent = 'Message sent. The Avengers will be in touch.';
+  e.target.reset();
+});
+
+render('All');
+</script>
+</body>
+</html>
